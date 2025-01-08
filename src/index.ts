@@ -1,0 +1,1 @@
+export { default as S3EncryptionClient } from './S3EncryptionClient';

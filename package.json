@@ -1,0 +1,23 @@
+{
+    "name": "s3-encryption-client",
+    "version": "1.0.0",
+    "main": "dist/index.js",
+    "types": "dist/index.d.ts",
+    "files": ["dist"],
+    "scripts": {
+      "build": "tsc",
+      "test": "jest",
+      "lint": "eslint src/**/*.ts",
+      "prepare": "npm run build"
+    },
+    "devDependencies": {
+      "@types/jest": "^27.0.0",
+      "@types/node": "^16.0.0",
+      "@typescript-eslint/eslint-plugin": "^4.0.0",
+      "@typescript-eslint/parser": "^4.0.0",
+      "eslint": "^7.0.0",
+      "jest": "^27.0.0",
+      "ts-jest": "^27.0.0",
+      "typescript": "^4.0.0"
+    }
+  }
