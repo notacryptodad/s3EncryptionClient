@@ -35,17 +35,6 @@ jobs:
     - name: Test
       run: npm test
 
-    # Optional: Add integration tests if AWS credentials are configured
-    # - name: Integration Test
-    #   if: github.event_name != 'pull_request'
-    #   env:
-    #     AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
-    #     AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
-    #     AWS_REGION: ${{ secrets.AWS_REGION }}
-    #     KMS_KEY_ID: ${{ secrets.KMS_KEY_ID }}
-    #     S3_BUCKET: ${{ secrets.S3_BUCKET }}
-    #   run: npm run test:integration
-
     - name: Upload build artifacts
       uses: actions/upload-artifact@v4
       with:
@@ -65,6 +54,7 @@ jobs:
       with:
         node-version: '20.x'
         registry-url: 'https://registry.npmjs.org'
+        cache: 'npm'
     
     - name: Install dependencies
       run: npm ci
@@ -73,6 +63,7 @@ jobs:
       run: npm run build
     
     - name: Publish to NPM
+      if: success()
       run: npm publish --access public
       env:
         NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
