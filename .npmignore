@@ -1,5 +1,11 @@
-node_modules/
-dist/
+src/
+tests/
+.env
+.env.example
+jest.config.js
+jest.integration.config.js
+tsconfig.json
+.eslintrc.json
+.gitignore
 coverage/
-.DS_Store
 *.log
